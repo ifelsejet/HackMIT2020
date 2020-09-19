@@ -16,9 +16,4 @@ db = scoped_session(sessionmaker(bind=engine))
 
 @app.route("/")
 def index():
-    if(not session):
-        return render_template("index.html")
-    elif(session["logged_in"] == True):
-        return redirect(url_for('chatroom'))
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
